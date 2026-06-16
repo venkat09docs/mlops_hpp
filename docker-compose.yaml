@@ -1,0 +1,16 @@
+services:
+  fastapi:
+    build: .
+    ports:
+      - "8000:8000"
+    container_name: fastapi-app
+
+  streamlit:
+    build: ./streamlit_app
+    ports:
+      - "8501:8501"
+    container_name: streamlit-app
+    environment:
+      - API_URL=http://fastapi:8000
+    depends_on:
+      - fastapi
