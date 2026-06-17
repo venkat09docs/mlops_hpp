@@ -76,7 +76,7 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: ./streamlit_app
-          file: Dockerfile
+          file: ./streamlit_app/Dockerfile
           push: true
           tags: docker.io/${{ vars.DOCKERHUB_USERNAME }}/streamlit-app:latest
 
